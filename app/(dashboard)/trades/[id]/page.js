@@ -10,6 +10,9 @@ import { tradeStore } from '@/lib/store/trade-store';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { formatCurrency, formatNumber, formatDateTime } from '@/lib/utils/formatters';
+import { ConfirmDialog } from '@/components/shared/confirm-dialog';
+import { toast } from 'sonner';
+import { normalizeError } from '@/lib/utils/errors';
 
 export default function TradeDetails({ params }) {
   const router = useRouter();
@@ -42,10 +45,12 @@ export default function TradeDetails({ params }) {
     try {
       const id = await params.id;
       await tradeStore.deleteTrade(id);
+      toast.success('Trade deleted successfully.');
       router.push('/trades');
     } catch (error) {
-      console.error("Failed to delete trade", error);
+      toast.error(normalizeError(error));
       setIsDeleting(false);
+      setShowDeleteConfirm(false);
     }
   };
 
@@ -79,21 +84,20 @@ export default function TradeDetails({ params }) {
             <Pencil className="w-3 h-3 mr-2" /> Edit Trade
           </Link>
           
-          {showDeleteConfirm ? (
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-loss mr-2">Are you sure?</span>
-              <Button variant="ghost" className="rounded-none h-9 text-xs" onClick={() => setShowDeleteConfirm(false)}>
-                Cancel
+          <ConfirmDialog
+            isOpen={showDeleteConfirm}
+            onOpenChange={setShowDeleteConfirm}
+            title="Delete Trade?"
+            description="This action permanently removes this trade from your journal. This action cannot be undone."
+            confirmLabel={isDeleting ? 'Deleting...' : 'Delete Trade'}
+            isDestructive={true}
+            onConfirm={handleDelete}
+            trigger={
+              <Button variant="ghost" className="rounded-none h-9 text-xs text-secondary-text hover:text-loss hover:bg-loss/5" onClick={() => setShowDeleteConfirm(true)}>
+                <Trash2 className="w-3 h-3 mr-2" /> Delete
               </Button>
-              <Button variant="destructive" className="rounded-none h-9 text-xs bg-loss hover:bg-loss/90" onClick={handleDelete} disabled={isDeleting}>
-                {isDeleting ? 'Deleting...' : 'Confirm'}
-              </Button>
-            </div>
-          ) : (
-            <Button variant="ghost" className="rounded-none h-9 text-xs text-secondary-text hover:text-loss hover:bg-loss/5" onClick={() => setShowDeleteConfirm(true)}>
-              <Trash2 className="w-3 h-3 mr-2" /> Delete
-            </Button>
-          )}
+            }
+          />
         </div>
       </div>
 

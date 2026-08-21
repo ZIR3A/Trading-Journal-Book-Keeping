@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 import { LoadingState } from '@/components/shared/loading-state';
 import { ErrorState } from '@/components/shared/error-state';
 import { use } from 'react';
+import { toast } from 'sonner';
+import { normalizeError } from '@/lib/utils/errors';
 
 export default function EditTradePage({ params }) {
   const router = useRouter();
@@ -32,8 +34,13 @@ export default function EditTradePage({ params }) {
   }, [id]);
 
   const handleSubmit = async (data) => {
-    await tradeStore.updateTrade(id, data);
-    router.push(`/trades/${id}`);
+    try {
+      await tradeStore.updateTrade(id, data);
+      toast.success('Trade updated successfully.');
+      router.push(`/trades/${id}`);
+    } catch (error) {
+      toast.error(normalizeError(error));
+    }
   };
 
   if (isLoading) {

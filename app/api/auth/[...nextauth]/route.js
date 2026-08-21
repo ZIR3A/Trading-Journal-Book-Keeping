@@ -62,18 +62,23 @@ export const authOptions = {
 
         if (dbUser) {
           token.userId = dbUser._id.toString();
+          token.name = dbUser.name || '';
           token.profileCompleted = dbUser.profileCompleted;
           token.onboardingCompleted = dbUser.onboardingCompleted;
         }
       }
 
-      // Handle explicit session updates (e.g., after onboarding)
+      // Handle explicit session updates (e.g., after onboarding or profile name change)
       if (trigger === 'update' && session) {
         if (session.onboardingCompleted !== undefined) {
           token.onboardingCompleted = session.onboardingCompleted;
         }
         if (session.profileCompleted !== undefined) {
           token.profileCompleted = session.profileCompleted;
+        }
+        // Allow the settings form to propagate a name change without full re-login
+        if (session.name !== undefined) {
+          token.name = session.name;
         }
       }
 
@@ -85,6 +90,8 @@ export const authOptions = {
         session.user.id = token.userId;
         session.user.profileCompleted = token.profileCompleted;
         session.user.onboardingCompleted = token.onboardingCompleted;
+        // Propagate name from JWT so profile updates reflect without re-login
+        if (token.name) session.user.name = token.name;
       }
       return session;
     },

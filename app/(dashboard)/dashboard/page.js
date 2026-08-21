@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import { PageHeader } from '@/components/layout/page-header';
 import { EmptyState } from '@/components/shared/empty-state';
 import { LoadingState } from '@/components/shared/loading-state';
@@ -48,10 +50,10 @@ export default function Dashboard() {
         />
         <EmptyState 
           icon={BookOpen}
-          title="No data available"
-          description="Record trades in your journal to unlock dashboard analytics."
-          actionLabel="Go to Journal"
-          actionHref="/trades" 
+          title="Your journal is empty."
+          description="Start recording your trades to see your performance here."
+          actionLabel="New Trade"
+          actionHref="/trades/new" 
         />
       </div>
     );
@@ -65,7 +67,11 @@ export default function Dashboard() {
       <PageHeader 
         title="Dashboard" 
         description="Performance analytics and account overview"
-      />
+      >
+        <Link href="/trades/new" className="inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">
+          New Trade
+        </Link>
+      </PageHeader>
       
       <MetricsCards metrics={metrics} />
       

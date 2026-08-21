@@ -22,8 +22,8 @@ export default function LoginPage() {
   return (
     <div className="bg-card py-10 px-4 border border-border shadow-none sm:px-10 rounded-none flex flex-col items-center">
       <div className="mb-6 text-center space-y-2">
-        <h3 className="text-xl font-medium tracking-tight text-primary">Welcome Back</h3>
-        <p className="text-sm text-secondary-text">Sign in to your trading journal</p>
+        <h3 className="text-xl font-medium tracking-tight text-primary">Welcome to Trading Journal</h3>
+        <p className="text-sm text-secondary-text">Log in or create an account to continue</p>
       </div>
 
       <div className="w-full">

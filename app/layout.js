@@ -22,11 +22,27 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Trading Journal App",
-  description: "Professional trading journal and performance-analysis application",
+  metadataBase: new URL('https://tradingjournal.app'),
+  title: {
+    template: '%s — Trading Journal',
+    default: 'Trading Journal App — Professional trade tracking',
+  },
+  description: 'Professional trading journal and performance-analysis application for active traders.',
+  openGraph: {
+    title: 'Trading Journal App',
+    description: 'Professional trading journal and performance-analysis application for active traders.',
+    url: 'https://tradingjournal.app',
+    siteName: 'Trading Journal',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 import { AuthProvider } from "@/lib/auth/auth-context";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function RootLayout({ children }) {
   return (
@@ -39,6 +55,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           {children}
         </AuthProvider>
+        <Toaster />
       </body>
     </html>
   );

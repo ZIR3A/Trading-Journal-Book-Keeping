@@ -4,13 +4,20 @@ import { PageHeader } from '@/components/layout/page-header';
 import { TradeForm } from '@/components/trades/trade-form';
 import { tradeStore } from '@/lib/store/trade-store';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+import { normalizeError } from '@/lib/utils/errors';
 
 export default function NewTradePage() {
   const router = useRouter();
 
   const handleSubmit = async (data) => {
-    await tradeStore.createTrade(data);
-    router.push('/trades');
+    try {
+      await tradeStore.createTrade(data);
+      toast.success('Trade created successfully.');
+      router.push('/trades');
+    } catch (error) {
+      toast.error(normalizeError(error));
+    }
   };
 
   return (
