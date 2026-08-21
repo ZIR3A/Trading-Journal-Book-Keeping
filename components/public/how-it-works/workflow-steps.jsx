@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/public/motion/reveal';
+import Image from 'next/image';
 
 export function WorkflowSteps() {
   const steps = [
@@ -6,26 +7,31 @@ export function WorkflowSteps() {
       number: '01',
       title: 'Create Your Journal',
       description: 'Create an account and enter the application using the secure authentication flow.',
+      image: '/login.png',
     },
     {
       number: '02',
       title: 'Record Your Trades',
       description: 'Capture the relevant information about each trade. Documenting the decision context ensures you remember why you entered.',
+      image: '/trade-entry-1.png',
     },
     {
       number: '03',
       title: 'Review What Happened',
       description: 'Return to completed trades. Review the original reasoning against the actual outcome to find the gap between expectation and reality.',
+      image: '/trade-detail-1.png',
     },
     {
       number: '04',
       title: 'Identify Patterns',
       description: 'Use your history and analytics to identify recurring behaviors and patterns in your execution.',
+      image: '/analytics-1.png',
     },
     {
       number: '05',
       title: 'Refine Your Process',
       description: 'Use the journal as a feedback loop for improving your own trading process over time.',
+      image: '/trade-history-5.png',
     }
   ];
 
@@ -40,11 +46,23 @@ export function WorkflowSteps() {
               >
                 
                 <div className="w-full md:w-1/2 flex justify-center">
-                  <div className="relative h-64 w-full max-w-sm rounded border border-border bg-subtle-background/30 flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
-                    <div className="text-8xl font-display font-bold text-border/40 select-none">
-                      {step.number}
-                    </div>
+                  <div className="relative h-64 w-full max-w-sm rounded border border-border bg-subtle-background/30 flex items-start justify-center overflow-hidden">
+                    {step.image ? (
+                      <Image 
+                        src={step.image} 
+                        alt={step.title} 
+                        width={800} 
+                        height={600} 
+                        className="w-[102%] max-w-none h-auto object-cover object-top"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+                        <div className="text-8xl font-display font-bold text-border/40 select-none flex items-center justify-center h-full w-full">
+                          {step.number}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
 

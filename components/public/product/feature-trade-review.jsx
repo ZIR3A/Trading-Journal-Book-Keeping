@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export function FeatureTradeReview() {
   return (
     <section className="py-24 border-t border-border bg-background">
@@ -24,21 +26,14 @@ export function FeatureTradeReview() {
             </ul>
           </div>
 
-          <div className="relative rounded border border-border bg-card shadow-xl p-6 h-[400px] flex flex-col gap-4 animate-in fade-in slide-in-from-right-8 duration-1000 ease-out">
-            <div className="h-8 w-48 bg-primary/10 rounded-sm mb-4" />
-            
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="border border-border rounded-sm p-4 flex items-center justify-between hover:bg-subtle-background/50 transition-colors">
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-3">
-                    <div className="h-5 w-16 bg-primary/80 rounded-sm" />
-                    <div className="h-4 w-24 bg-border/60 rounded-sm" />
-                  </div>
-                  <div className="h-3 w-48 bg-secondary-text/40 rounded-sm" />
-                </div>
-                <div className={`h-8 w-20 rounded-sm ${i % 2 === 0 ? 'bg-loss/20' : 'bg-profit/20'}`} />
-              </div>
-            ))}
+          <div className="relative rounded border border-border shadow-xl h-[400px] flex items-start justify-center overflow-hidden animate-in fade-in slide-in-from-right-8 duration-1000 ease-out bg-subtle-background">
+            <Image 
+              src="/trade-detail-1.png" 
+              alt="Trade Detail View" 
+              width={1920}
+              height={1080}
+              className="w-[102%] max-w-none h-auto object-cover object-top"
+            />
           </div>
 
         </div>

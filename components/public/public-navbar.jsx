@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
@@ -18,7 +19,8 @@ export function PublicNavbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href="/" className="font-display font-semibold text-lg tracking-tight text-primary">
+          <Link href="/" className="font-display font-semibold text-lg tracking-tight text-primary flex items-center gap-3">
+            <Image src="/brand-logo.png" alt="Trading Journal" width={48} height={48} className="object-contain" />
             Trading Journal
           </Link>
           <nav className="hidden md:flex gap-6">
@@ -40,14 +42,9 @@ export function PublicNavbar() {
               Dashboard
             </Link>
           ) : (
-            <>
-              <Link href="/login" className="text-sm font-medium text-secondary-text hover:text-primary transition-colors">
-                Log In
-              </Link>
               <Link href="/login" className={buttonVariants({ variant: 'default', size: 'sm', className: "rounded-none" })}>
                 Start Journaling
               </Link>
-            </>
           )}
         </div>
 
@@ -96,14 +93,6 @@ export function PublicNavbar() {
                   Dashboard
                 </Link>
               ) : (
-                <>
-                  <Link 
-                    href="/login" 
-                    className="text-sm font-medium text-secondary-text"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Log In
-                  </Link>
                   <Link 
                     href="/login" 
                     className={buttonVariants({ variant: 'default', className: "w-full rounded-none justify-center" })}
@@ -111,7 +100,6 @@ export function PublicNavbar() {
                   >
                     Start Journaling
                   </Link>
-                </>
               )}
             </div>
           </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { buttonVariants } from '@/components/ui/button';
 import { Reveal } from '@/components/public/motion/reveal';
 
@@ -41,40 +42,15 @@ export function HeroSection() {
 
       <Reveal delay={600} direction="up" className="mt-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
         <div className="bg-card border border-border p-2 shadow-2xl">
-          <div className="aspect-[16/9] w-full bg-subtle-background flex items-center justify-center overflow-hidden border border-border relative">
-            
-            {/* Minimalist Wireframe Representation of the App */}
-            <div className="absolute inset-0 flex flex-col">
-              {/* Header */}
-              <div className="h-12 border-b border-border flex items-center px-6 gap-4">
-                <div className="h-4 w-24 bg-border opacity-50"></div>
-                <div className="h-4 w-16 bg-border opacity-50"></div>
-                <div className="h-4 w-16 bg-border opacity-50"></div>
-              </div>
-              <div className="flex-1 flex p-6 gap-6">
-                {/* Main Content Area */}
-                <div className="flex-1 space-y-6">
-                  {/* Top Stats */}
-                  <div className="grid grid-cols-3 gap-6">
-                    <div className="h-24 bg-background border border-border"></div>
-                    <div className="h-24 bg-background border border-border"></div>
-                    <div className="h-24 bg-background border border-border"></div>
-                  </div>
-                  {/* Chart Area */}
-                  <div className="h-64 bg-background border border-border"></div>
-                </div>
-                
-                {/* Sidebar */}
-                <div className="w-1/3 bg-background border border-border flex flex-col">
-                  <div className="h-12 border-b border-border bg-subtle-background/50"></div>
-                  <div className="flex-1 p-4 space-y-4">
-                    <div className="h-12 bg-subtle-background"></div>
-                    <div className="h-12 bg-subtle-background"></div>
-                    <div className="h-12 bg-subtle-background"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="w-full bg-subtle-background flex items-center justify-center overflow-hidden border border-border relative">
+            <Image 
+              src="/dashboard-home.png" 
+              alt="Trading Journal Dashboard Interface" 
+              width={1920}
+              height={1080}
+              className="w-[102%] max-w-none h-auto"
+              priority
+            />
           </div>
         </div>
 

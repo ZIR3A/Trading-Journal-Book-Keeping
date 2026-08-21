@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Home, LineChart, Calendar, Settings, BookOpen } from 'lucide-react';
 
@@ -18,7 +19,10 @@ export function Sidebar() {
   return (
     <div className="w-64 border-r border-border bg-card hidden md:flex md:flex-col shrink-0">
       <div className="flex h-16 shrink-0 items-center px-6 border-b border-border">
-        <span className="text-lg font-display font-semibold tracking-tight text-primary">Trading Journal</span>
+        <span className="flex items-center gap-3 text-lg font-display font-semibold tracking-tight text-primary">
+          <Image src="/brand-logo.png" alt="Trading Journal" width={40} height={40} className="object-contain" />
+          Trading Journal
+        </span>
       </div>
       <div className="flex flex-1 flex-col overflow-y-auto">
         <nav className="flex-1 px-4 py-4 space-y-1">

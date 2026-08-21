@@ -13,24 +13,27 @@ import { formatCurrency, formatNumber, formatDateTime } from '@/lib/utils/format
 import { ConfirmDialog } from '@/components/shared/confirm-dialog';
 import { toast } from 'sonner';
 import { normalizeError } from '@/lib/utils/errors';
+import { use } from 'react';
 
 export default function TradeDetails({ params }) {
+  const unwrappedParams = use(params);
+  const id = unwrappedParams.id;
   const router = useRouter();
   const [trade, setTrade] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     async function loadTrade() {
       try {
-        const id = await params.id;
         const data = await tradeStore.getTradeById(id);
         if (!data) {
-          router.push('/trades');
-          return;
+          setNotFound(true);
+        } else {
+          setTrade(data);
         }
-        setTrade(data);
       } catch (error) {
         console.error("Failed to load trade", error);
       } finally {
@@ -38,12 +41,11 @@ export default function TradeDetails({ params }) {
       }
     }
     loadTrade();
-  }, [params.id, router]);
+  }, [id, router]);
 
   const handleDelete = async () => {
     setIsDeleting(true);
     try {
-      const id = await params.id;
       await tradeStore.deleteTrade(id);
       toast.success('Trade deleted successfully.');
       router.push('/trades');
@@ -58,7 +60,26 @@ export default function TradeDetails({ params }) {
     return <div className="p-8 text-center text-sm text-secondary-text">Loading trade details...</div>;
   }
 
-  if (!trade) return null;
+  if (notFound || !trade) {
+    return (
+      <div className="max-w-5xl mx-auto space-y-6">
+        <Link href="/trades" className="inline-flex items-center text-xs text-secondary-text hover:text-primary mb-2">
+          <ArrowLeft className="w-3 h-3 mr-1" /> Back to Journal
+        </Link>
+        <div className="text-center py-16 px-4 border border-border border-dashed bg-card rounded-md">
+          <h3 className="text-base font-semibold text-primary">Trade Not Found</h3>
+          <p className="mt-2 text-sm text-secondary-text max-w-sm mx-auto">
+            The trade you're looking for doesn't exist or is no longer available.
+          </p>
+          <div className="mt-6">
+            <Link href="/trades" className={buttonVariants({ variant: "default" })}>
+              Back to Trade Journal
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-5xl mx-auto space-y-6">

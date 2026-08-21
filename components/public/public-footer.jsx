@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function PublicFooter() {
   const currentYear = new Date().getFullYear();
@@ -9,7 +10,8 @@ export function PublicFooter() {
         
         {/* Brand */}
         <div className="flex flex-col gap-4 max-w-sm">
-          <span className="font-display font-semibold text-lg tracking-tight text-primary">
+          <span className="font-display font-semibold text-lg tracking-tight text-primary flex items-center gap-3">
+            <Image src="/brand-logo.png" alt="Trading Journal" width={48} height={48} className="object-contain" />
             Trading Journal
           </span>
           <p className="text-sm text-secondary-text leading-relaxed">
@@ -35,7 +37,7 @@ export function PublicFooter() {
           
           <div className="flex flex-col gap-4">
             <h4 className="text-sm font-semibold text-primary">Application</h4>
-            <Link href="/login" className="text-sm text-secondary-text hover:text-primary transition-colors">Log In</Link>
+
             <Link href="/login" className="text-sm text-secondary-text hover:text-primary transition-colors">Start Journaling</Link>
           </div>
 

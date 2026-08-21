@@ -15,9 +15,6 @@ export function FinalCTA() {
           <Link href="/login" className={buttonVariants({ variant: 'default', size: 'lg', className: "w-full sm:w-auto rounded-none px-12" })}>
             Start Journaling
           </Link>
-          <Link href="/login" className={buttonVariants({ variant: 'outline', size: 'lg', className: "w-full sm:w-auto rounded-none px-12 bg-transparent" })}>
-            Log In
-          </Link>
         </div>
       </div>
     </section>

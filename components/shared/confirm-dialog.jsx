@@ -26,7 +26,7 @@ export function ConfirmDialog({
 }) {
   return (
     <AlertDialog open={isOpen} onOpenChange={onOpenChange}>
-      {trigger && <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>}
+      {trigger && <AlertDialogTrigger render={trigger} />}
       <AlertDialogContent className="rounded-none shadow-sm border-border">
         <AlertDialogHeader>
           <AlertDialogTitle className="font-display text-primary">{title}</AlertDialogTitle>

@@ -4,8 +4,11 @@ import Link from 'next/link';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { formatCurrency, formatNumber, formatDate } from '@/lib/utils/formatters';
+import { useRouter } from 'next/navigation';
 
 export function TradeList({ trades }) {
+  const router = useRouter();
+
   if (!trades || trades.length === 0) {
     return (
       <div className="py-12 text-center text-secondary-text">
@@ -31,15 +34,21 @@ export function TradeList({ trades }) {
           {trades.map((trade) => (
             <TableRow 
               key={trade.id} 
-              className="border-b border-border hover:bg-secondary transition-colors"
+              className="border-b border-border hover:bg-secondary transition-colors cursor-pointer group"
+              onClick={() => router.push(`/trades/${trade.id}`)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  router.push(`/trades/${trade.id}`);
+                }
+              }}
+              tabIndex={0}
             >
               <TableCell className="py-3 font-mono text-sm text-secondary-text">
                 {formatDate(trade.date)}
               </TableCell>
-              <TableCell className="py-3 font-medium text-primary">
-                <Link href={`/trades/${trade.id}`} className="hover:underline">
-                  {trade.symbol.toUpperCase()}
-                </Link>
+              <TableCell className="py-3 font-medium text-primary group-hover:underline">
+                {trade.symbol.toUpperCase()}
               </TableCell>
               <TableCell className="py-3">
                 <Badge variant={trade.direction === 'long' ? 'long' : 'short'}>
