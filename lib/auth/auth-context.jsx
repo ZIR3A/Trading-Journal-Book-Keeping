@@ -33,7 +33,7 @@ function AuthStateProvider({ children }) {
 
   const logout = async () => {
     // Triggers NextAuth logout flow
-    await signOut({ callbackUrl: '/login' });
+    await signOut({ callbackUrl: '/' });
   };
 
   return (

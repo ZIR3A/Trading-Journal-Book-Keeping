@@ -83,6 +83,15 @@ export default function LoginPage() {
       <div className="w-full lg:w-[40%] bg-background flex flex-col justify-center p-6 sm:p-12 lg:p-16 min-h-screen lg:min-h-0 relative">
         <div className="w-full max-w-md mx-auto space-y-8">
           
+          <div className="flex justify-start mb-2">
+            <Link href="/" className="inline-flex items-center text-sm font-medium text-secondary-text hover:text-primary transition-colors">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to home
+            </Link>
+          </div>
+
           <div className="space-y-3">
             <h2 className="text-3xl font-display font-semibold tracking-tight text-primary">
               Welcome back
