@@ -7,7 +7,7 @@ import { LineChart } from 'lucide-react';
 import { tradeStore } from '@/lib/store/trade-store';
 import { useState, useEffect, useMemo } from 'react';
 import { calculateDashboardMetrics, calculateStreaks } from '@/lib/utils/dashboard-metrics';
-import { analyzeSetups, analyzeDirection, buildRDistribution, buildCumulativeR } from '@/lib/utils/analytics';
+import { analyzeSetups, analyzeDirection, buildRDistribution, buildCumulativeR, buildMonthlyPnl, buildWinLossData } from '@/lib/utils/analytics';
 
 import { AnalyticsFilters } from '@/components/analytics/analytics-filters';
 import { PerformanceOverview } from '@/components/analytics/performance-overview';
@@ -15,6 +15,8 @@ import { CumulativeRChart } from '@/components/analytics/cumulative-r-chart';
 import { SetupPerformance } from '@/components/analytics/setup-performance';
 import { DirectionPerformance } from '@/components/analytics/direction-performance';
 import { RDistributionChart } from '@/components/analytics/r-distribution-chart';
+import { MonthlyPnlChart } from '@/components/analytics/monthly-pnl-chart';
+import { WinLossChart } from '@/components/analytics/win-loss-chart';
 import { StreakStats } from '@/components/analytics/streak-stats';
 
 /**
@@ -97,6 +99,8 @@ export default function AnalyticsPage() {
   const setupData = useMemo(() => analyzeSetups(filteredTrades), [filteredTrades]);
   const directionData = useMemo(() => analyzeDirection(filteredTrades), [filteredTrades]);
   const rDistData = useMemo(() => buildRDistribution(filteredTrades), [filteredTrades]);
+  const monthlyPnlData = useMemo(() => buildMonthlyPnl(filteredTrades), [filteredTrades]);
+  const winLossData = useMemo(() => buildWinLossData(filteredTrades), [filteredTrades]);
 
   if (isLoading) {
     return <LoadingState text="Loading performance analysis..." />;
@@ -162,6 +166,12 @@ export default function AnalyticsPage() {
 
           {/* Cumulative R Progression chart */}
           <CumulativeRChart data={cumulativeRData} />
+
+          {/* Monthly PnL + Win Loss Chart */}
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <MonthlyPnlChart data={monthlyPnlData} />
+            <WinLossChart data={winLossData} />
+          </div>
 
           {/* R Distribution + Direction Performance */}
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
