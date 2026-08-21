@@ -11,19 +11,19 @@ export function HeroSection() {
         <Reveal delay={0}>
           <div className="inline-flex items-center rounded-full border border-border px-3 py-1 text-sm font-medium text-secondary-text mb-8">
             <span className="flex h-2 w-2 rounded-full bg-primary mr-2"></span>
-            Now available for traders
+            A focused journal for active traders
           </div>
         </Reveal>
 
         <Reveal delay={150}>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-semibold text-primary tracking-tight mb-6">
-            Record every decision.<br className="hidden md:inline" /> Understand your edge.
+            Trade with clarity.<br className="hidden md:inline" /> Learn from every trade.
           </h1>
         </Reveal>
 
         <Reveal delay={300}>
           <p className="mt-4 text-xl text-secondary-text max-w-2xl mx-auto font-body mb-10 leading-relaxed">
-            The minimal, professional trading journal for active traders. Stop wrestling with spreadsheets and start analyzing your actual performance.
+            A trading journal built to help you record your trades, understand your performance, identify patterns, and improve your trading process.
           </p>
         </Reveal>
 
@@ -32,8 +32,8 @@ export function HeroSection() {
             <Link href="/login" className={buttonVariants({ variant: 'default', size: 'lg', className: "w-full sm:w-auto rounded-none h-12 px-8" })}>
               Start Journaling
             </Link>
-            <Link href="/product" className={buttonVariants({ variant: 'outline', size: 'lg', className: "w-full sm:w-auto rounded-none h-12 px-8" })}>
-              Explore the Product
+            <Link href="#features" className={buttonVariants({ variant: 'outline', size: 'lg', className: "w-full sm:w-auto rounded-none h-12 px-8" })}>
+              Explore Features
             </Link>
           </div>
         </Reveal>
