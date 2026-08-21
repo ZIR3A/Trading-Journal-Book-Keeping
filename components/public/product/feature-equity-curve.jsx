@@ -28,7 +28,7 @@ export function FeatureEquityCurve() {
 
           <Reveal delay={150} direction="left" className="relative rounded border border-border shadow-xl h-[400px] flex items-start justify-center overflow-hidden bg-subtle-background">
             <Image 
-              src="/analytics.png" 
+              src="/analytics-1.png" 
               alt="Equity curve showing cumulative trading performance over the selected period" 
               width={1920}
               height={1080}

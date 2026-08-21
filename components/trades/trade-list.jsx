@@ -5,6 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Badge } from '@/components/ui/badge';
 import { formatCurrency, formatNumber, formatDate } from '@/lib/utils/formatters';
 import { useRouter } from 'next/navigation';
+import { TrendingUp, TrendingDown } from 'lucide-react';
 
 export function TradeList({ trades }) {
   const router = useRouter();
@@ -51,9 +52,13 @@ export function TradeList({ trades }) {
                 {trade.symbol.toUpperCase()}
               </TableCell>
               <TableCell className="py-3">
-                <Badge variant={trade.direction === 'long' ? 'long' : 'short'}>
-                  {trade.direction.toUpperCase()}
-                </Badge>
+                <div className="flex items-center" title={trade.direction === 'long' ? 'Long Trade' : 'Short Trade'}>
+                  {trade.direction === 'long' ? (
+                    <TrendingUp className="w-5 h-5 text-profit" aria-label="Long" />
+                  ) : (
+                    <TrendingDown className="w-5 h-5 text-loss" aria-label="Short" />
+                  )}
+                </div>
               </TableCell>
               <TableCell className="py-3">
                 <span className={`text-xs uppercase tracking-wider font-semibold ${trade.status === 'open' ? 'text-primary' : 'text-secondary-text'}`}>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { ChevronLeft, ChevronRight, X, Plus } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Plus, TrendingUp, TrendingDown } from 'lucide-react';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { formatCurrency, formatNumber } from '@/lib/utils/formatters';
 import Link from 'next/link';
@@ -265,7 +265,13 @@ export function CalendarView({ trades }) {
                             </span>
                           </div>
                           <div className="flex justify-between text-xs text-secondary-text">
-                            <span className="uppercase">{trade.direction}</span>
+                            <div className="flex items-center" title={trade.direction === 'long' ? 'Long Trade' : 'Short Trade'}>
+                              {trade.direction === 'long' ? (
+                                <TrendingUp className="w-4 h-4 text-profit" aria-label="Long" />
+                              ) : (
+                                <TrendingDown className="w-4 h-4 text-loss" aria-label="Short" />
+                              )}
+                            </div>
                             <span>{trade.setup || 'No Setup'}</span>
                           </div>
                         </Link>

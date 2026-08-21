@@ -32,7 +32,7 @@ export function FeatureInsights() {
 
           <Reveal delay={150} direction="left" className="relative rounded border border-border shadow-xl h-[400px] flex items-start justify-center overflow-hidden bg-subtle-background">
             <Image 
-              src="/analytics.png" 
+              src="/analytics-1.png" 
               alt="Free trading journal showing historical patterns, setup comparisons, and long/short breakdowns" 
               width={1920}
               height={1080}

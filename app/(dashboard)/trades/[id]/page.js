@@ -4,7 +4,7 @@ import { PageHeader } from '@/components/layout/page-header';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button, buttonVariants } from '@/components/ui/button';
-import { ArrowLeft, Pencil, Trash2 } from 'lucide-react';
+import { ArrowLeft, Pencil, Trash2, TrendingUp, TrendingDown } from 'lucide-react';
 import Link from 'next/link';
 import { tradeStore } from '@/lib/store/trade-store';
 import { useRouter } from 'next/navigation';
@@ -91,9 +91,13 @@ export default function TradeDetails({ params }) {
           </Link>
           <div className="flex items-center gap-3">
             <h1 className="text-3xl font-display text-primary">{trade.symbol.toUpperCase()}</h1>
-            <Badge variant={trade.direction === 'long' ? 'long' : 'short'} className="text-sm px-3 py-1">
-              {trade.direction.toUpperCase()}
-            </Badge>
+            <div className="flex items-center" title={trade.direction === 'long' ? 'Long Trade' : 'Short Trade'}>
+              {trade.direction === 'long' ? (
+                <TrendingUp className="w-6 h-6 text-profit" aria-label="Long" />
+              ) : (
+                <TrendingDown className="w-6 h-6 text-loss" aria-label="Short" />
+              )}
+            </div>
             <span className={`text-xs uppercase tracking-wider font-semibold ${trade.status === 'open' ? 'text-primary' : 'text-secondary-text'}`}>
               {trade.status}
             </span>
