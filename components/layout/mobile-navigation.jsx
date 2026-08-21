@@ -22,7 +22,9 @@ export function MobileNavigation() {
       <SheetContent side="left" className="w-64 p-0 border-r border-border">
         <SheetHeader className="h-16 flex flex-row items-center justify-start border-b border-border px-6 mt-0">
           <SheetTitle className="flex items-center gap-3 text-lg font-display font-semibold tracking-tight text-primary text-left m-0 p-0">
-            <Image src="/brand-logo.png" alt="Trading Journal" width={40} height={40} className="object-contain" />
+            <div className="rounded-[4px] overflow-hidden flex items-center justify-center shrink-0 w-10 h-10">
+              <Image src="/images/brand-logo.png" alt="Trading Journal" width={40} height={40} className="object-cover w-full h-full" />
+            </div>
             Trading Journal
           </SheetTitle>
         </SheetHeader>

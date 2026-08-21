@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: ['/dashboard/', '/analytics/', '/settings/', '/trades/', '/api/'],
     },
-    sitemap: 'https://tradingjournal.app/sitemap.xml',
+    sitemap: 'https://trading-journal-book-keeping.vercel.app/sitemap.xml',
   };
 }

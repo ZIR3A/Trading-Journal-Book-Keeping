@@ -19,10 +19,12 @@ export function Sidebar() {
   return (
     <div className="w-64 border-r border-border bg-card hidden md:flex md:flex-col shrink-0">
       <div className="flex h-16 shrink-0 items-center px-6 border-b border-border">
-        <span className="flex items-center gap-3 text-lg font-display font-semibold tracking-tight text-primary">
-          <Image src="/brand-logo.png" alt="Trading Journal" width={40} height={40} className="object-contain" />
+        <Link href="/dashboard" className="flex items-center gap-3 text-lg font-display font-semibold tracking-tight text-primary hover:opacity-80 transition-opacity">
+          <div className="rounded-[4px] overflow-hidden flex items-center justify-center shrink-0 w-10 h-10">
+            <Image src="/images/brand-logo.png" alt="Trading Journal" width={40} height={40} className="object-cover w-full h-full" />
+          </div>
           Trading Journal
-        </span>
+        </Link>
       </div>
       <div className="flex flex-1 flex-col overflow-y-auto">
         <nav className="flex-1 px-4 py-4 space-y-1">

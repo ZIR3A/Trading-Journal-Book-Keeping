@@ -19,8 +19,8 @@ export function FeaturePerformance() {
 
         <Reveal delay={150} direction="up" className="relative rounded border border-border shadow-xl h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] flex items-start justify-center overflow-hidden bg-subtle-background max-w-5xl mx-auto">
           <Image 
-            src="/analytics-1.png" 
-            alt="Free trading journal analytics showing win rate, profit factor, and expectancy" 
+            src="/images/3.webp" 
+            alt="Trading Journal analytics dashboard showing trading performance metrics" 
             width={1920}
             height={1080}
             className="w-[102%] max-w-none h-auto object-cover object-top"

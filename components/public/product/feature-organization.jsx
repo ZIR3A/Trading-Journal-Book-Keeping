@@ -8,8 +8,8 @@ export function FeatureOrganization() {
           
           <div className="order-2 lg:order-1 relative rounded border border-border shadow-xl h-[400px] flex items-start justify-center overflow-hidden animate-in fade-in slide-in-from-left-8 duration-1000 ease-out bg-subtle-background">
             <Image 
-              src="/trade-history-5.png" 
-              alt="Trade History View" 
+              src="/images/2.webp" 
+              alt="Trading Journal trade journal showing recorded trades and performance" 
               width={1920}
               height={1080}
               className="w-[102%] max-w-none h-auto object-cover object-top"

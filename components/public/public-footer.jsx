@@ -11,7 +11,9 @@ export function PublicFooter() {
         {/* Brand */}
         <div className="flex flex-col gap-4 max-w-sm">
           <span className="font-display font-semibold text-lg tracking-tight text-primary flex items-center gap-3">
-            <Image src="/brand-logo.png" alt="Trading Journal" width={48} height={48} className="object-contain" />
+            <div className="rounded-[4px] overflow-hidden flex items-center justify-center shrink-0">
+              <Image src="/images/brand-logo.png" alt="Trading Journal logo" width={48} height={48} className="object-cover w-full h-full" />
+            </div>
             Trading Journal
           </span>
           <p className="text-sm text-secondary-text leading-relaxed">

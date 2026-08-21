@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://tradingjournal.app'),
+  metadataBase: new URL('https://trading-journal-book-keeping.vercel.app'),
   title: {
     template: '%s — Trading Journal',
     default: 'Trading Journal App — Professional trade tracking',
@@ -31,7 +31,7 @@ export const metadata = {
   openGraph: {
     title: 'Trading Journal App',
     description: 'Professional trading journal and performance-analysis application for active traders.',
-    url: 'https://tradingjournal.app',
+    url: 'https://trading-journal-book-keeping.vercel.app',
     siteName: 'Trading Journal',
     type: 'website',
   },

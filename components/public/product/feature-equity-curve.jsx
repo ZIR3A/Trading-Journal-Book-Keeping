@@ -28,8 +28,8 @@ export function FeatureEquityCurve() {
 
           <Reveal delay={150} direction="left" className="relative rounded border border-border shadow-xl h-[400px] flex items-start justify-center overflow-hidden bg-subtle-background">
             <Image 
-              src="/analytics-1.png" 
-              alt="Equity curve showing cumulative trading performance over the selected period" 
+              src="/images/4.webp" 
+              alt="Trading Journal equity curve showing cumulative trading performance" 
               width={1920}
               height={1080}
               className="w-[102%] max-w-none h-auto object-cover object-top"

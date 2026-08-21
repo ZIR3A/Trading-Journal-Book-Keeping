@@ -9,8 +9,8 @@ export function FeatureProcess() {
           
           <Reveal delay={150} direction="right" className="order-2 lg:order-1 relative rounded border border-border shadow-xl h-[400px] flex items-start justify-center overflow-hidden bg-subtle-background">
             <Image 
-              src="/trade-detail-1.png" 
-              alt="Free trading journal showing recorded risk context, setup details, and execution notes" 
+              src="/images/7.webp" 
+              alt="Trading Journal trade entry form showing setup and risk details" 
               width={1920}
               height={1080}
               className="w-[102%] max-w-none h-auto object-cover object-top"

@@ -7,31 +7,31 @@ export function WorkflowSteps() {
       number: '01',
       title: 'Create Your Journal',
       description: 'Create an account and enter the application using the secure authentication flow.',
-      image: '/login.png',
+      image: '/images/9.webp',
     },
     {
       number: '02',
       title: 'Record Your Trades',
       description: 'Capture the relevant information about each trade. Documenting the decision context ensures you remember why you entered.',
-      image: '/trade-entry-1.png',
+      image: '/images/7.webp',
     },
     {
       number: '03',
       title: 'Review What Happened',
       description: 'Return to completed trades. Review the original reasoning against the actual outcome to find the gap between expectation and reality.',
-      image: '/trade-detail-1.png',
+      image: '/images/6.webp',
     },
     {
       number: '04',
       title: 'Identify Patterns',
       description: 'Use your history and analytics to identify recurring behaviors and patterns in your execution.',
-      image: '/analytics-1.png',
+      image: '/images/3.webp',
     },
     {
       number: '05',
       title: 'Refine Your Process',
       description: 'Use the journal as a feedback loop for improving your own trading process over time.',
-      image: '/trade-history-5.png',
+      image: '/images/4.webp',
     }
   ];
 

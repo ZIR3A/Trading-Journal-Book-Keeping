@@ -32,8 +32,8 @@ export function FeatureTradeReview() {
 
           <Reveal delay={150} direction="left" className="relative rounded border border-border shadow-xl h-[400px] flex items-start justify-center overflow-hidden bg-subtle-background">
             <Image 
-              src="/trade-detail-1.png" 
-              alt="Free trading journal showing detailed trade review, execution, and notes" 
+              src="/images/6.webp" 
+              alt="Trading Journal trade detail showing trade performance and review notes" 
               width={1920}
               height={1080}
               className="w-[102%] max-w-none h-auto object-cover object-top"

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { LogIn } from 'lucide-react';
 import { CalendarView } from '@/components/calendar/calendar-view';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Dummy data for the calendar preview
 const generateDummyTrades = () => {
@@ -52,7 +53,10 @@ export default function LoginPage() {
       {/* LEFT PANEL: PRODUCT EXPERIENCE */}
       <div className="w-full lg:w-[60%] bg-subtle-background border-r border-border p-6 sm:p-8 lg:p-12 flex flex-col overflow-hidden h-auto lg:h-screen">
         <div className="mb-8">
-          <Link href="/" className="inline-flex items-center text-primary font-display font-bold text-xl tracking-tight hover:opacity-80 transition-opacity">
+          <Link href="/" className="inline-flex items-center text-primary font-display font-bold text-xl tracking-tight hover:opacity-80 transition-opacity gap-3">
+            <div className="rounded-[4px] overflow-hidden flex items-center justify-center shrink-0 w-10 h-10">
+              <Image src="/images/brand-logo.png" alt="Trading Journal" width={40} height={40} className="object-cover w-full h-full" />
+            </div>
             Trading Journal
           </Link>
         </div>

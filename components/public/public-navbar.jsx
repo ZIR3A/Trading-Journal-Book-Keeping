@@ -20,7 +20,9 @@ export function PublicNavbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="font-display font-semibold text-lg tracking-tight text-primary flex items-center gap-3">
-            <Image src="/brand-logo.png" alt="Trading Journal" width={48} height={48} className="object-contain" />
+            <div className="rounded-[4px] overflow-hidden flex items-center justify-center shrink-0">
+              <Image src="/images/brand-logo.png" alt="Trading Journal logo" width={48} height={48} className="object-cover w-full h-full" />
+            </div>
             Trading Journal
           </Link>
           <nav className="hidden md:flex gap-6">

@@ -1,6 +1,6 @@
 export default function sitemap() {
-  const baseUrl = 'https://tradingjournal.app';
-  
+  const baseUrl = 'https://trading-journal-book-keeping.vercel.app';
+
   const routes = [
     '',
     '/product',

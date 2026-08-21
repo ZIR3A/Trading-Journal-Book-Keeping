@@ -21,8 +21,8 @@ export function ProductPreviewSection() {
           <div className="bg-card border border-border p-2 shadow-xl">
             <div className="w-full bg-subtle-background flex items-center justify-center overflow-hidden border border-border relative">
               <Image 
-                src="/trade-entry-1.png" 
-                alt="Trading Journal Entry Interface" 
+                src="/images/1.webp" 
+                alt="Trading Journal dashboard showing trading performance and recent trades" 
                 width={1920}
                 height={1080}
                 className="w-[102%] max-w-none h-auto"
