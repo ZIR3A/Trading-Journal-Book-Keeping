@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-body: var(--font-source-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-ring: var(--ring);
+  
+  --color-profit: var(--profit);
+  --color-loss: var(--loss);
+  --color-neutral: var(--neutral);
+
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+  --radius-4xl: var(--radius);
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #111111;
+  --primary-text: #111111;
+  --secondary-text: #666666;
+  --muted-text: #888888;
+  
+  --card: #FFFFFF;
+  --card-foreground: #111111;
+  
+  --primary: #111111;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F7F7F7;
+  --secondary-foreground: #111111;
+  
+  --muted: #F5F5F5;
+  --muted-foreground: #888888;
+  
+  --border: #E5E5E5;
+  --subtle-background: #F7F7F7;
+  
+  --profit: #16A34A;
+  --loss: #DC2626;
+  --neutral: #666666;
+
+  --ring: #111111;
+  --radius: 0px;
+}
+
+.dark {
+  --background: #111111;
+  --foreground: #F5F5F5;
+  --primary-text: #F5F5F5;
+  --secondary-text: #A0A0A0;
+  --muted-text: #777777;
+  
+  --card: #151515;
+  --card-foreground: #F5F5F5;
+  
+  --primary: #F5F5F5;
+  --primary-foreground: #111111;
+  --secondary: #181818;
+  --secondary-foreground: #F5F5F5;
+  
+  --muted: #2A2A2A;
+  --muted-foreground: #777777;
+  
+  --border: #2A2A2A;
+  --subtle-background: #181818;
+  
+  --profit: #16A34A;
+  --loss: #DC2626;
+  --neutral: #666666;
+
+  --ring: #F5F5F5;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
