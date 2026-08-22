@@ -43,6 +43,7 @@ export const metadata = {
 
 import { AuthProvider } from "@/lib/auth/auth-context";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({ children }) {
   return (
@@ -56,6 +57,7 @@ export default function RootLayout({ children }) {
           {children}
         </AuthProvider>
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
