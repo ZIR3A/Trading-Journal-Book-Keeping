@@ -47,13 +47,19 @@ export function PublicFooter() {
 
       </div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
         <p className="text-xs text-muted-foreground">
           &copy; {currentYear} Trading Journal. All rights reserved.
         </p>
-        <p className="text-xs text-muted-foreground">
-          Built for traders who review.
-        </p>
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs text-muted-foreground">
+          <p>
+            Design & Developed by <a href="https://saranbaral.com.np/" target="_blank" rel="noopener noreferrer" className="font-medium text-secondary-text underline hover:text-primary transition-colors">Saran</a>.
+          </p>
+          <span className="hidden sm:block">&bull;</span>
+          <p>
+            Built for traders who review.
+          </p>
+        </div>
       </div>
     </footer>
   );
